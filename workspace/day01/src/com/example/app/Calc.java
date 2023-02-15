@@ -1,32 +1,38 @@
 package com.example.app;
 
 public class Calc {
-	
-	public int calc(String num1, String num2, String cal) {
-		int result = 0;
-		int number1 = Integer.parseInt(num1);
-		int number2 = Integer.parseInt(num2);
-		
-		switch (cal) {
-		case "+": {
-			result = number1 + number2;
-			break;
-		}
-		case "-": {
-			result = number1 - number2;
-			break;
-		}
-		case "/": {
-			result = number1 / number2;
-		}
-		case "*": {
-			result = number1 * number2;
-		}
-		default:
-			break;
-		}
-		
-		return result;
-	}
-	
+   private int number1;
+   private int number2;
+   
+   public Calc() {;}
+
+   public Calc(String number1, String number2) {
+      super();
+      this.number1 = Integer.valueOf(number1);
+      this.number2 = Integer.valueOf(number2);
+   }
+   
+   public int add() {return number1 + number2;};
+   public int sub() {return number1 - number2;};
+   public int mul() {return number1 * number2;};
+   public int div() {return number1 / number2;};
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
