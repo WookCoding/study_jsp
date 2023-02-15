@@ -59,6 +59,16 @@
      <servlet-name>Calc</servlet-name>
      <url-pattern>/calc</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>result</servlet-name>
+     <jsp-file>/result.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>result</servlet-name>
+     <url-pattern>/result</url-pattern>
+  </servlet-mapping>
 </web-app>
 
 

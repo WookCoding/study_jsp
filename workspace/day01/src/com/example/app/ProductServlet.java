@@ -18,11 +18,7 @@ public class ProductServlet extends HttpServlet{
 		resp.setContentType("text/html; charset=utf-8");
 		PrintWriter out = resp.getWriter();
 		
-//		out.print("<a href='jstl-test-01.jsp?name=한동석&age=20'>이름 전송</a>");
-		req.setAttribute("name", "사과");
-		req.setAttribute("count", "10");
-		req.getRequestDispatcher("jstl-test01.jsp").forward(req, resp);
-		out.print("<a href='jstl-test-01.jsp>이름 전송</a>");
+		out.print("<a href='product.jsp?name=사과&price=1000'>정보 전송</a>");
 		out.close();
 	}
 	
