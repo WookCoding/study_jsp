@@ -11,33 +11,75 @@
   </welcome-file-list>
   
   <servlet>
-  	<servlet-name>MyServlet</servlet-name>
-  	<servlet-class>com.example.app.MyServlet</servlet-class>
+     <servlet-name>MyServlet</servlet-name>
+     <servlet-class>com.example.app.MyServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>MyServlet</servlet-name>
-  	<url-pattern>/MyServlet</url-pattern>
+     <servlet-name>MyServlet</servlet-name>
+     <url-pattern>/MyServlet</url-pattern>
   </servlet-mapping>
   
   <servlet>
-  	<servlet-name>Oper</servlet-name>
-  	<servlet-class>com.example.app.Oper</servlet-class>
+     <servlet-name>Oper</servlet-name>
+     <servlet-class>com.example.app.Oper</servlet-class>
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>Oper</servlet-name>
-  	<url-pattern>/oper</url-pattern>
+     <servlet-name>Oper</servlet-name>
+     <url-pattern>/oper</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+     <servlet-name>Join</servlet-name>
+     <servlet-class>com.example.app.Join</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>Join</servlet-name>
+     <url-pattern>/join</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+     <servlet-name>Product</servlet-name>
+     <servlet-class>com.example.app.ProductServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>Product</servlet-name>
+     <url-pattern>/product</url-pattern>
   </servlet-mapping>
   
   <servlet>
-  	<servlet-name>Calc</servlet-name>
-	<jsp-file>/calc.jsp</jsp-file>
+     <servlet-name>Calc</servlet-name>
+     <jsp-file>/calc.jsp</jsp-file>
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>Calc</servlet-name>
-  	<url-pattern>/calc</url-pattern>
+     <servlet-name>Calc</servlet-name>
+     <url-pattern>/calc</url-pattern>
   </servlet-mapping>
-  
 </web-app>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -39,3 +39,106 @@ WAS(Web Application Server) - Tomcat
 4. 나눗셈 메소드에서는 분모가 0일 경우를 처리하지 않고 Oper.java 서블릿에서 나눗셈 메소드 사용 시 예외를 처리한다.
 5. Oper.java 서블릿에서 전달받은 수식을 분석한 후 사칙연산 연산자에 맞게 Calc.java의 메소드를 호출하여 결과를 응답한다.
 6. Oper.java 서블릿에서 calc.jsp로 돌아갈 때에는 calc.jsp가 아닌 calc로 이동할 수 있도록 web.xml에서 servlet을 설정한다.
+==================================================================================
+EL문과 JSTL : 페이지 가독성 상승
+	자바 구문을 라이브러리 형태로 만들어 놓고 필요할 때마다 태그로 꺼내쓰는 기술이다.
+	JSP 페이지 내에서 자바 코드와 HTML 코드가 섞여 있으면 가독성이 떨어지고 복잡해진다.
+	EL문과 JSTL문을 사용하면 HTML 태그로만 구성된 일관된 소스코드를 볼 수 있다는 장점이 있다.
+
+-EL(Expression Language)
+	값을 간결하고 간편하게 출력할 수 있도록 해주는 기술
+
+	자바			EL
+	<%=name%>		${name}
+	<%=member.getName()%>	${member.name}
+
+	값을 찾을 때에는 작은 Scope에서 큰 Scope로 찾는다.
+	page > request > session > application
+
+	${param.name} : 전달받은 데이터 중 쿼리스트링으로 작성된 데이터에서 name을 찾는다.
+	${requestScope.name} : request 객체에 담긴 데이터 중 name을 찾는다.
+	${sessionScope.name} : session 객체에 담긴 데이터 중 name을 찾는다.
+
+EL 연산자
+	%, mod
+	&&, and
+	||, or
+	>, lt
+	<, gt
+	>=, le
+	<=, ge
+	==, eq
+	!=, ne
+	!, not
+	empty : 값이 비어있으면 true, 아니면 false
+
+-JSTL(JSP Standard Tag Libarary)
+	연산자나 조건문, 반복문 등을 편하게 처리할 수 있으며, SJP 페이지 내에서 자바코드를 사용하지 않고
+	로직을 구현할 수 있도록 효율적인 방법을 제공한다.
+
+	자바					JSTL
+	<%for(초기식; 조건식; 증감식){}%>		<c:forEach var="" begin="" end=""></c:forEach>
+	<%for(자료형 변수명 : 반복자){}%>		<c:forEach var="" items="${반복자}"></c:forEach>
+
+
+	core 태그의 종류
+		<c:set> 	: 변수 선언
+		<c:out> 	: 변수 출력(사용)
+		<c:if>		: if문
+		<c:choose>	: else if문 시작
+		<c:when>	: else if문
+		<c:otherwise>	: else문
+		<c:forEach>	: for문
+
+-----------------------------------------------------------------------------------
+EL 실습
+	상품명과 상품가격을 전달받아서 화면에 출력한다.
+	1. ProductServlet.java 선언
+	2. product.jsp 선언
+	
+	정수 2개를 입력받고 덧셈 결과 출력
+	1. input.jsp 선언
+	2. result.jsp 선언
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
