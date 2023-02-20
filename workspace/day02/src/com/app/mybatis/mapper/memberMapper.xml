@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+	<select id="checkId" parameterType="string" resultType="long">
+		select member_Id from tbl_member where member_identification = #{memberIdentification}
+	</select>
+	
+	<insert id="join" parameterType="memberVO">
+		insert Into tbl_member (member_name, member_birth, member_identification, member_password)
+		values(#{memberName},#{memberBirth},#{memberIdentification},#{memberPassword});
+	</insert>
+
+	<select id="login" parameterType="map" resultType="long">
+		select member_id from tbl_member where member_identification = #{memberIdentification} and member_password = #{memberPassword}
+	</select>
+	
+	<select id="selectAll" resultType="memberVO">
+		select member_id, member_name, member_birth, member_identification, member_password from tbl_member
+	</select>	
+	
+	<delete id="delete" parameterType="long">
+		delete from tbl_member where member_id = #{memberId}
+	</delete>
+	
+	<update id="update" parameterType="memberVO">
+		update tbl_member set member_name=#{memberName} where member_id = #{memberId} 
+	</update>
+	
+	
+</mapper>
+
+
+
