@@ -34,12 +34,12 @@ public class MemberDAO {
 	   loginMap.put("memberIdentification", memberIdentification);
 	   loginMap.put("memberPassword", memberPassword);
 	   
-	   return sqlSession.selectOne("login", loginMap);
+	   return sqlSession.selectOne("member.login", loginMap);
    }
    
 //   전체 회원목록
    public List<MemberVO> selectAll(){
-	   return sqlSession.selectList("select");
+	   return sqlSession.selectList("member.selectAll");
    }
    
    

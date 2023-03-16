@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	<sql id="search">
+		<if test="types != null">
+			where
+			<trim prefixOverrides="or">
+				<foreach item="type" collection="types">
+					<trim prefix="or">
+						<choose>
+							<when test="type == 'title'.toString()">
+								board_title like concat('%', #{keyword}, '%')
+							</when>
+							<when test="type == 'content'.toString()">
+								board_content like concat('%', #{keyword}, '%')
+							</when>
+							<when test="type == 'writer'.toString()">
+								member_name like concat('%', #{keyword}, '%')
+							</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+	</sql>
+
+	<select id="selectAll" parameterType="map" resultType="boardDTO">
+		select board_id, board_title, board_content, board_register_date, 
+		board_update_date, board_read_count, member_name
+		from view_board 
+		<include refid="search"/>
+		order by 
+		<choose>
+			<when test="sort=='recent'.toString()">
+				board_id 
+			</when>
+			<when test="sort=='popular'.toString()">
+				board_read_count 
+			</when>
+		</choose>
+		desc 
+		limit #{startRow}, #{rowCount}
+	</select>
+	
+	<select id="getTotal" parameterType="map" resultType="long">
+		select count(board_id) from tbl_board 
+		<include refid="search"/>
+	</select>
+	
+	<select id="select" parameterType="long" resultType="boardDTO">
+		select board_id, board_title, board_content, board_register_date, 
+		board_update_date, board_read_count, member_id, member_name
+		from view_board 
+		where board_id = #{boardId}
+	</select>
+	
+	<insert id="insert" parameterType="boardVO">
+		insert into tbl_board(board_title, board_content, member_id) 
+		values(#{boardTitle}, #{boardContent}, #{memberId})
+	</insert>
+	
+	<select id="getCurrentSequence" resultType="long">
+		select last_insert_id()
+	</select>
+	
+	<update id="update" parameterType="boardVO">
+		update tbl_board
+		set board_title = #{boardTitle}, board_content = #{boardContent}, board_update_date = now()
+		where board_id = #{boardId}
+	</update>
+	
+	<delete id="delete" parameterType="long">
+		delete from tbl_board where board_id = #{boardId}
+	</delete>
+	
+	<update id="updateReadCount" parameterType="long">
+		update tbl_board
+		set board_read_count = board_read_count + 1
+		where board_id = #{boardId}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
