@@ -114,6 +114,7 @@ EL 연산자
       로직을 구현할 수 있도록 효율적인 방법을 제공한다.
 
      자바               JSTL
+     
         <%for(초기식; 조건식; 증감식){}%>      <c:forEach var="" begin="" end=""></c:forEach>
         <%for(자료형 변수명 : 반복자){}%>      <c:forEach var="" items="${반복자}"></c:forEach>
 
